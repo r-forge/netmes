@@ -1,0 +1,137 @@
+
+Run all the commands in order to see all the functions run.
+
+###########################################
+#### FOR THE SYNTHETIC NETWORK
+
+G <- 100 # number of genes in the network
+E <- 5 # number of experiments (data sets)
+
+infile <- "./netmes/data/networkDAG.sif"
+
+net <- readNet(infile, G)   # true network (+1 edge/ activator - -1 edges/repr.)
+
+infilepath <- "./netmes/data/syn/"
+res <- evalnetworks(E, G, net, infilepath)
+
+# minet 3.1.1 must be installed for this function, for earlier versions 
+# in evalnetworks.R 
+#fs[ind] must be changed as  fs[ind,] not to see error.
+
+
+#  in order to plot F-scores from the ensemble of data sets
+
+postscript(file="Fscores.eps", horiz=FALSE, paper = "special", family = "Helvetica", encoding = "TeXtext.enc", width = 10.0, height = 10.0)
+par(mfrow=c(1,1), mar=c(0.3,4.8,0.4,0.1), oma=c(0,0,0,0))
+boxplot(res$Fscores, ylab = expression(F),ylim = c(0.5,0.75), cex.lab = 2.3, cex.axis = 2.3, col = c("purple") )
+dev.off()
+
+#to plot optimal threhold values for getting F-scores
+postscript(file="Ithr.eps", horiz=FALSE, paper = "special", family = "Helvetica", encoding = "TeXtext.enc", width = 10.0, height = 10.0)
+par(mfrow=c(1,1), mar=c(1.1,4.8,0.4,0.1), oma=c(0,0,0,0))
+boxplot(res$Ithr, ylab = expression(I[0]), cex.lab = 2.3, cex.axis = 2.3, col = c("orange") )
+dev.off()
+
+#to plot mutual information (MI) values on edges
+MI <- res$aveMImat[which(res$net != 0, arr.ind = TRUE)]
+postscript(file="MI.eps", horiz=FALSE, paper = "special", family = "Helvetica", encoding = "TeXtext.enc", width = 10.0, height = 10.0)
+par(mfrow=c(1,1), mar=c(1.1,4.8,0.4,0.1), oma=c(0,0,0,0))
+boxplot(MI, ylab = "MI on edges", cex.lab = 2.3, cex.axis = 2.3, col = c("blue") )
+dev.off()
+
+## In order to plot network with visnet
+
+Sm <- sumdeg(net)
+
+visnet(net, c("no"), res$rmat, Sm)
+################# continue to plot TPR ac vs re
+
+TPRs <- TPRall(res)  #also save the fig
+
+# influence of activators
+postscript(file="TPRall_syn.eps", horiz=FALSE, paper = "letter")   
+hist(TPRs$TPReALL, 5, ylim = c(0,50), xlim = c(0,1), col = "blue", main = "", ylab = "", xlab = "TPR", cex.lab = 1.7, cex.axis = 1.6)
+hist(TPRs$TPReALLac, 5, ylim = c(0,50), xlim = c(0,1), add = TRUE, col = "red")
+dev.off()
+
+##################################### To plot sum of degrees of nodes, Ds, values
+
+Ds <-plotDs(TPRs$TPReALL, Sm, fig=TRUE)
+
+####################################
+
+################# To get motif statistics
+res2 <- motifcount3(net, res$rmat, res$aveMImat, G)
+
+plotMotifs(res2)
+################# 
+
+###########################################
+#### FOR THE BIOLOGICAL NETWORK
+
+G <- 100 # number of genes in the network
+E <- 5 # number of experiments
+
+infilenet <- "./netmes/data/networkEcoli.sif"
+
+resEC <- readSifNet(infilenet, G)   # true network (+1 edge/ activator - -1 edges/repr.
+net <- resEC$net
+
+infilepath <- "./netmes/data/bio/"
+res <- evalnetworksNames(E, G, resEC$net, infilepath, resEC$names)
+
+
+# minet 3.1.1 must be installed for this function, for earlier versions 
+# in evalnetworksNames.R 
+#fs[ind] must be changed as  fs[ind,] not to see error.
+
+
+
+#  in order to plot F-scores from the ensemble of data sets
+
+postscript(file="Fscores_bio.eps", horiz=FALSE, paper = "special", family = "Helvetica", encoding = "TeXtext.enc", width = 10.0, height = 10.0)
+par(mfrow=c(1,1), mar=c(0.3,4.8,0.4,0.1), oma=c(0,0,0,0))
+boxplot(res$Fscores, ylab = expression(F), cex.lab = 2.3, cex.axis = 2.3, col = c("purple") )
+dev.off()
+
+#to plot optimal threhold values for getting F-scores
+postscript(file="Ithr_bio.eps", horiz=FALSE, paper = "special", family = "Helvetica", encoding = "TeXtext.enc", width = 10.0, height = 10.0)
+par(mfrow=c(1,1), mar=c(1.1,4.8,0.4,0.1), oma=c(0,0,0,0))
+boxplot(res$Ithr, ylab = expression(I[0]), cex.lab = 2.3, cex.axis = 2.3, col = c("orange") )
+dev.off()
+
+#to plot mutual information (MI) values on edges
+MI <- res$aveMImat[which(res$net != 0, arr.ind = TRUE)]
+postscript(file="MI_bio.eps", horiz=FALSE, paper = "special", family = "Helvetica", encoding = "TeXtext.enc", width = 10.0, height = 10.0)
+par(mfrow=c(1,1), mar=c(1.1,4.8,0.4,0.1), oma=c(0,0,0,0))
+boxplot(MI, ylab = "MI on edges", cex.lab = 2.3, cex.axis = 2.3, col = c("blue") )
+dev.off()
+
+## In order to plot network with visnet
+
+Sm <- sumdeg(net)
+
+visnet(net, resEC$names, res$rmat, Sm)   # for biological network - resEC$names containes gene names
+################# continue to plot TPR ac vs re
+
+TPRs <- TPRall(res)  #also save the fig
+
+# influence of activators 
+postscript(file="TPRall_bio.eps", horiz=FALSE, paper = "letter")    
+hist(TPRs$TPReALL, 5, ylim = c(0,80), xlim = c(0,1), col = "blue", main = "", ylab = "", xlab = "TPR", cex.lab = 1.7, cex.axis = 1.6)
+hist(TPRs$TPReALLac, 5, ylim = c(0,80), xlim = c(0,1), add = TRUE, col = "red")
+dev.off()
+
+##################################### To plot sum of degrees of nodes, Ds, values
+
+Ds <-plotDs(TPRs$TPReALL, Sm, fig=TRUE)
+
+####################################
+
+
+################# To get motif statistics
+res2 <- motifcount3(net, res$rmat, res$aveMImat, G)
+
+plotMotifs(res2)
+################# 
+

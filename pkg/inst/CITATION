@@ -1,0 +1,45 @@
+citHeader("To cite netmes in publications use:")
+
+citEntry(entry = "Article",
+  title        = "NETMES: An open source R/Bioconductor Package for exploratory analysis of network inference algorithms with local network measures",
+  author       = "Gokmen Altay and Frank emmert-Streib",
+  journal      = "Bioinformatics",
+  year         = "2010",
+  volume       = "",
+  url 		   = "http://bioinformatics.oxfordjournals.org/",
+  textVersion  =
+  paste("Gokmen Altay, Frank emmert-Streib (2010).",
+        "NETMES: An open source R/Bioconductor Package for exploratory analysis of network inference algorithms with local network measures.",
+        "Bioinformatics.",
+        "URL http://bioinformatics.oxfordjournals.org/")
+)
+
+
+citEntry(entry = "Article",
+  title        = "Revealing differences in gene network inference algorithms on the network level by ensemble methods",
+  author       = "Gokmen Altay and Frank emmert-Streib",
+  journal      = "Bioinformatics",
+  year         = "2010",
+  volume       = "26",
+  url 		   = "http://bioinformatics.oxfordjournals.org/",
+  textVersion  =
+  paste("Gokmen Altay, Frank emmert-Streib (2010).",
+        "Revealing differences in gene network inference algorithms on the network level by ensemble methods.",
+        "Bioinformatics.",
+        "URL http://bioinformatics.oxfordjournals.org/")
+)
+
+
+citEntry(entry = "Article",
+  title        = "Local network-based measures to assess the inferability of different regulatory networks",
+  author       = "Frank Emmert-Streib and Gokmen Altay",
+  journal      = "IET Syst. Biol.",
+  year         = "2010",
+  volume       = "4",
+  url 		   = "http://www.ietdl.org/getabs/servlet/GetabsServlet?prog=normal&id=ISBEAT000004000004000277000001&idtype=cvips&gifs=Yes&ref=no",
+  textVersion  =
+  paste("Gokmen Altay, Frank emmert-Streib (2010).",
+        "Local network-based measures to assess the inferability of different regulatory networks.",
+        "IET Syst. Biol.",
+        "URL http://www.ietdl.org/getabs/servlet/GetabsServlet?prog=normal&id=ISBEAT000004000004000277000001&idtype=cvips&gifs=Yes&ref=no")
+)

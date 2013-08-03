@@ -1,0 +1,16 @@
+Package:netmes 
+Version: 1.0
+Title: Exploratory Analysis of Gene Network Infoerence Algorithms R package
+Author: Gokmen Altay, Frank Emmert-Streib, <altayscience@gmail.com>, <f.emmert-streib@qub.ac.uk>
+Maintainer: Gokmen Altay <altayscience@gmail.com>
+Date: 2010-09-22
+Author: Gokmen Altay, Frank Emmert-Streib 
+Description: This package implements various algorithms for an explanatory analysis of network based
+            evaluation measures to assess network inference algorithms systematically.
+Maintainer: Gokmen Altay <altayscience@gmail.com>
+License: GPL (>= 3)
+Depends: minet, infotheo, igraph, Hmisc, gregmisc
+URL: http://www.bio-complexity.com/
+Repository: R-Forge
+Date/Publication: 2010-09-06 15:04:40
+Packaged: 2013-07-26 13:19:32 UTC; zeyneb
