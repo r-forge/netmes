@@ -26,13 +26,11 @@ Frank Emmert-Streib, Gokmen Altay. Local network-based measures to assess the in
 \examples{
 
 # infile <- "./netmes/data/networkDAG.sif"
-# infile <- "/home/zeyneb/Desktop/netmes/data/networkDAG.sif"
-infile <- "/extdata/networkDAG.sif"
 
-G <- 100 # number of genes in the network
-net <- readNet(infile, G)   
-tnet <- abs(net) + abs(t(net)) # true network (make symmetric)
-tnet <- 1*(tnet > 0)           # in case there were bi-directional connections
+# G <- 100 # number of genes in the network
+# net <- readNet(infile, G)   
+# tnet <- abs(net) + abs(t(net)) # true network (make symmetric)
+# tnet <- 1*(tnet > 0)           # in case there were bi-directional connections
 
 }
 \keyword{misc}

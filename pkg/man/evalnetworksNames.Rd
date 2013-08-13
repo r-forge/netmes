@@ -38,26 +38,21 @@ Frank Emmert-Streib, Gokmen Altay. Local network-based measures to assess the in
 \seealso{\code{\link{readSifNet}},   \code{\link{readNet}},    \code{\link{evalnetworksNames}}}
 \examples{
 
-G <- 100 # number of genes in the network
-E <- 5 # number of experiments
+# G <- 100 # number of genes in the network
+# E <- 5 # number of experiments
 
 # infilenet <- "./netmes/data/networkEcoli.sif"
-# infilenet <- "/home/zeyneb/Desktop/netmes/data/networkEcoli.sif"
-infilenet <- "/extdata/networkEcoli.sif"
 
-
-resEC <- readSifNet(infilenet, G)   # true network (+1 edge/ activator - -1 edges/repr.
-net <- resEC$net
+# resEC <- readSifNet(infilenet, G)   # true network (+1 edge/ activator - -1 edges/repr.
+# net <- resEC$net
 
 # infilepath <- "./netmes/data/bio/"
-# infilepath <- "/home/zeyneb/Desktop/netmes/data/bio/" 
-infilepath <- "/extdata/bio/"
 
 # This is an example path. Change this path wrt the path of data in your computer.
 
-res <- evalnetworksNames(E, G, resEC$net, infilepath, resEC$names)
+# res <- evalnetworksNames(E, G, resEC$net, infilepath, resEC$names)
 
-boxplot(res$Fscores)
+# boxplot(res$Fscores)
 
 # save(res, file = "res_EColi")
 # if desired for later analysis.

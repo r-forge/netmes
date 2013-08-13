@@ -28,15 +28,12 @@ Frank Emmert-Streib, Gokmen Altay. Local network-based measures to assess the in
 \examples{
 
 # infilenet <- "./netmes/data/networkEcoli.sif"
-# infilenet <- "/home/zeyneb/Desktop/netmes/data/networkEcoli.sif"
-infilenet <- "/extdata/networkEcoli.sif"
 
-
-G <- 100 # number of genes in the network
-resEC <- readSifNet(infilenet, G)   # true network (+1 edge/ activator - -1 edges/repr.
-net <- resEC$net
-tnet <- abs(resEC$net) + abs(t(resEC$net)) # true network (make symmetric)
-tnet <- 1*(tnet > 0)           # in case there were bi-directional connections
+# G <- 100 # number of genes in the network
+# resEC <- readSifNet(infilenet, G)   # true network (+1 edge/ activator - -1 edges/repr.
+# net <- resEC$net
+# tnet <- abs(resEC$net) + abs(t(resEC$net)) # true network (make symmetric)
+# tnet <- 1*(tnet > 0)           # in case there were bi-directional connections
 
 }
 \keyword{misc}
