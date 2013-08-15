@@ -1,12 +1,11 @@
 Package:netmes 
 Version: 1.0
-Title: Exploratory Analysis of Gene Network Infoerence Algorithms R package
+Title: Exploratory Analysis of Gene Networks with Netmes, An R package for network-based measures
 Author: Gokmen Altay, Frank Emmert-Streib, <altayscience@gmail.com>, <f.emmert-streib@qub.ac.uk>
 Maintainer: Gokmen Altay <altayscience@gmail.com>
 Date: 2010-09-22
 Author: Gokmen Altay, Frank Emmert-Streib 
-Description: This package implements various algorithms for an explanatory analysis of network based
-            evaluation measures to assess network inference algorithms systematically.
+Description: This package implements various algorithms for an explanatory analysis of network based evaluation measures to assess network inference algorithms systematically.
 Maintainer: Gokmen Altay <altayscience@gmail.com>
 License: GPL (>= 3)
 Depends: minet, infotheo, igraph, Hmisc, gregmisc
