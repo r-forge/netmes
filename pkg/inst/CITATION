@@ -1,21 +1,6 @@
 citHeader("To cite netmes in publications use:")
 
 citEntry(entry = "Article",
-  title        = "NETMES: An open source R/Bioconductor Package for exploratory analysis of network inference algorithms with local network measures",
-  author       = "Gokmen Altay and Frank emmert-Streib",
-  journal      = "Bioinformatics",
-  year         = "2010",
-  volume       = "",
-  url 		   = "http://bioinformatics.oxfordjournals.org/",
-  textVersion  =
-  paste("Gokmen Altay, Frank emmert-Streib (2010).",
-        "NETMES: An open source R/Bioconductor Package for exploratory analysis of network inference algorithms with local network measures.",
-        "Bioinformatics.",
-        "URL http://bioinformatics.oxfordjournals.org/")
-)
-
-
-citEntry(entry = "Article",
   title        = "Revealing differences in gene network inference algorithms on the network level by ensemble methods",
   author       = "Gokmen Altay and Frank emmert-Streib",
   journal      = "Bioinformatics",
