@@ -63,11 +63,9 @@ if(Sm != 0) g1 <- set.edge.attribute(g1, "label", value = Sm )
 
 
   g1 <- set.edge.attribute(g1, "color", index = E(g1), ce )
-  tkplot(g1)
+  tkplot(g1, canvas.width = 1000, canvas.height = 1000)
 
 }
-
-
 
 
 
