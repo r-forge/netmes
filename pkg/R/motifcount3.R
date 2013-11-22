@@ -14,10 +14,12 @@
 ## from
 ## http://www.r-project.org/Licenses/LGPL-3
 
-motifcount3 <- function(net, rmat, MImat, G){ 
+motifcount3 <- function(net, rmat, MImat){ 
 
   # net: directed network (edges 0/1)
-  # G: number of nodes
+  # G: number of nodes (genes)
+
+  G <- dim(net)[1]  # number of genes is assigned inside the local function
 
   
   moty <- c(0,0,0,0,0)  # five different motifs

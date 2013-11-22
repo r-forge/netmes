@@ -14,7 +14,12 @@
 ## from
 ## http://www.r-project.org/Licenses/LGPL-3
 
-readNamesMI <- function(infile, G, namesSif){ 
+readNamesMI <- function(infile, infilepath, namesSif){ 
+
+  file.adr <- paste(infilepath, "1/mim.exp", sep = "");
+  cc <-read.table(file.adr)
+  G <- dim(cc)[1]  # number of genes is assigned inside the local function
+
 
   names <- scan(file = infile, what = "character", skip = 0, nlines = 1)
   N <- length(names)

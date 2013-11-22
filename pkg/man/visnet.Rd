@@ -27,18 +27,15 @@ Frank Emmert-Streib, Gokmen Altay. Local network-based measures to assess the in
 \seealso{\code{\link{readSifNet}},   \code{\link{evalnetworks}},    \code{\link{evalnetworksNames}}}
 \examples{
 
-# G <- 100 # number of genes in the network
 # E <- 5 # number of experiments (data sets)
 
 # infile <- "./netmes/data/networkDAG.sif"
-
-# net <- readNet(infile, G)   # true network (+1 edge/ activator - -1 edges/repr.)
-
 # infilepath <- "./netmes/data/syn/"
+# This is an example path. Change this path wrt the path of data in your computer.
 
-#This is an example path. Change this path wrt the path of data in your computer.
+# net <- readNet(infile, infilepath)   # true network (+1 edge/ activator - -1 edges/repr.)
 
-# res <- evalnetworks(E, G, net, infilepath)
+# res <- evalnetworks(E, net, infilepath)
 
 # Sm <- sumdeg(net)
 
@@ -48,7 +45,7 @@ Frank Emmert-Streib, Gokmen Altay. Local network-based measures to assess the in
 # Adjust the plot by selecting "Layout" -> "Fruchterman-Reingold"
 
 # visnet(net, resEC$names, res$rmat, Sm)  # for biological networks-resEC$names containes gene names
-# This can be used with evalnetworksNames funtion.
+# This can be used with evalnetworksNames function.
 
 
 }

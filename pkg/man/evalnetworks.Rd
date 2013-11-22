@@ -2,13 +2,11 @@
 \alias{evalnetworks}
 
 \title{Computing all the statistics from data of sythetic network}
-\usage{evalnetworks(E, G, net, infilepath)}
+\usage{evalnetworks(E, net, infilepath)}
 \arguments{
   \item{E}{number of experiments.}
-  \item{G}{Number of genes. }
   \item{net}{Adjacency matrix of genes (not symmetric).}
-  \item{infilepath}{The path where all the data files kept.}
-
+  \item{infilepath}{The path of the directory, where all the data files kept.}
 }
 \value{
       \code{evalnetworks} returns an object of class '"res"' which is a list with components: 
@@ -38,25 +36,20 @@ Frank Emmert-Streib, Gokmen Altay. Local network-based measures to assess the in
 
 \examples{
 
-# G <- 100 # number of genes in the network
 # E <- 5 # number of experiments (data sets)
 
 # infile <- "./netmes/data/networkDAG.sif"
 
-# net <- readNet(infile, G)   # true network (+1 edge/ activator - -1 edges/repr.)
-
 # infilepath <- "./netmes/data/syn/"
+# This is an example path. Change this path wrt the path of data in your computer.
 
-#This is an example path. Change this path wrt the path of data in your computer.
+# net <- readNet(infile, infilepath) # true network (+1 edge/ activator - -1 edges/repr.)
 
-# res <- evalnetworks(E, G, net, infilepath)
+# res <- evalnetworks(E, net, infilepath)
 
-#boxplot(res$Fscores) #optional
+# boxplot(res$Fscores) #optional
 
-#save(res, file = "resDAG")  # is used for saving boxplots 
+# save(res, file = "resDAG")  # is used for saving boxplots 
 
 }
 \keyword{misc}
-
-
-

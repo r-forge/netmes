@@ -2,12 +2,11 @@
 \alias{evalnetworksNames}
 
 \title{Computing all the statistics from data of biological network}
-\usage{evalnetworksNames(E, G, net, infilepath, namesSif)}
+\usage{evalnetworksNames(E, net, infilepath, namesSif)}
 \arguments{
   \item{E}{number of experiments.}
-  \item{G}{Number of genes. }
   \item{net}{Adjacency matrix of genes (not symmetric).}
-  \item{infilepath}{The path where all the data files kept.}
+  \item{infilepath}{The path of the directory, where all the data files kept.}
   \item{namesSif}{names of the genes corresponding to the adjacency matrix.}
 
 }
@@ -38,19 +37,16 @@ Frank Emmert-Streib, Gokmen Altay. Local network-based measures to assess the in
 \seealso{\code{\link{readSifNet}},   \code{\link{readNet}},    \code{\link{evalnetworksNames}}}
 \examples{
 
-# G <- 100 # number of genes in the network
 # E <- 5 # number of experiments
 
 # infilenet <- "./netmes/data/networkEcoli.sif"
-
-# resEC <- readSifNet(infilenet, G)   # true network (+1 edge/ activator - -1 edges/repr.
-# net <- resEC$net
-
 # infilepath <- "./netmes/data/bio/"
-
 # This is an example path. Change this path wrt the path of data in your computer.
 
-# res <- evalnetworksNames(E, G, resEC$net, infilepath, resEC$names)
+# resEC <- readSifNet(infilenet, infilepath)   # true network (+1 edge/ activator - -1 edges/repr.
+# net <- resEC$net
+
+# res <- evalnetworksNames(E, resEC$net, infilepath, resEC$names)
 
 # boxplot(res$Fscores)
 

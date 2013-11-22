@@ -24,20 +24,17 @@ Frank Emmert-Streib, Gokmen Altay. Local network-based measures to assess the in
 \seealso{\code{\link{motifcount3}},    \code{\link{evalnetworksNames}}}
 \examples{
 
-# G <- 100 # number of genes in the network
 # E <- 5 # number of experiments (data sets)
 
 # infile <- "./netmes/data/networkDAG.sif"
-
-# net <- readNet(infile, G)   # true network (+1 edge/ activator - -1 edges/repr.)
-
 # infilepath <- "./netmes/data/syn/"
-
 # This is an example path. Change this path wrt the path of data in your computer.
 
-# res <- evalnetworks(E, G, net, infilepath)
+# net <- readNet(infile, infilepath) # true network (+1 edge/ activator - -1 edges/repr.)
 
-# res2 <- motifcount3(net, res$rmat, res$aveMImat, G)
+# res <- evalnetworks(E, net, infilepath)
+
+# res2 <- motifcount3(net, res$rmat, res$aveMImat)
 
 # plotMotifs(res2)
 

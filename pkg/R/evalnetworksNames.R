@@ -14,8 +14,11 @@
 ## from
 ## http://www.r-project.org/Licenses/LGPL-3
 
-evalnetworksNames <- function(E, G, net, infilepath, namesSif){
+evalnetworksNames <- function(E, net, infilepath, namesSif){
 
+  file.adr <- paste(infilepath, "1/mim.exp", sep = "");
+  cc <-read.table(file.adr)
+  G <- dim(cc)[1]  # number of genes is assigned inside the local function
 
   tnet <- abs(net) + abs(t(net)) # true network (make symmetric)
   tnet <- 1*(tnet > 0)           # in case there were bi-directional connections
@@ -28,7 +31,7 @@ evalnetworksNames <- function(E, G, net, infilepath, namesSif){
   for(i in 1:E){
     print(i)
     infile <- paste(infilepath, as.character(i), "/mim.exp", sep = "")
-    matf <- readNamesMI(infile, G, namesSif)
+    matf <- readNamesMI(infile, infilepath, namesSif)
     m <- max(matf)
     if(m == Inf){  # filter problem values
       print("problem")

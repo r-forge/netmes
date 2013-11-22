@@ -4,15 +4,14 @@ Run all the commands in order to see all the functions run.
 ###########################################
 #### FOR THE SYNTHETIC NETWORK
 
-G <- 100 # number of genes in the network
 E <- 5 # number of experiments (data sets)
 
 infile <- "./netmes/data/networkDAG.sif"
-
-net <- readNet(infile, G)   # true network (+1 edge/ activator - -1 edges/repr.)
-
 infilepath <- "./netmes/data/syn/"
-res <- evalnetworks(E, G, net, infilepath)
+
+net <- readNet(infile, infilepath) # true network (+1 edge/ activator - -1 edges/repr.)
+
+res <- evalnetworks(E, net, infilepath)
 
 # minet 3.1.1 must be installed for this function, for earlier versions 
 # in evalnetworks.R 
@@ -61,7 +60,7 @@ Ds <-plotDs(TPRs$TPReALL, Sm, fig=TRUE)
 ####################################
 
 ################# To get motif statistics
-res2 <- motifcount3(net, res$rmat, res$aveMImat, G)
+res2 <- motifcount3(net, res$rmat, res$aveMImat)
 
 plotMotifs(res2)
 ################# 
@@ -69,17 +68,15 @@ plotMotifs(res2)
 ###########################################
 #### FOR THE BIOLOGICAL NETWORK
 
-G <- 100 # number of genes in the network
 E <- 5 # number of experiments
 
 infilenet <- "./netmes/data/networkEcoli.sif"
+infilepath <- "./netmes/data/bio/"
 
-resEC <- readSifNet(infilenet, G)   # true network (+1 edge/ activator - -1 edges/repr.
+resEC <- readSifNet(infilenet, infilepath) # true network (+1 edge/ activator - -1 edges/repr.
 net <- resEC$net
 
-infilepath <- "./netmes/data/bio/"
-res <- evalnetworksNames(E, G, resEC$net, infilepath, resEC$names)
-
+res <- evalnetworksNames(E, resEC$net, infilepath, resEC$names)
 
 # minet 3.1.1 must be installed for this function, for earlier versions 
 # in evalnetworksNames.R 
@@ -130,7 +127,7 @@ Ds <-plotDs(TPRs$TPReALL, Sm, fig=TRUE)
 
 
 ################# To get motif statistics
-res2 <- motifcount3(net, res$rmat, res$aveMImat, G)
+res2 <- motifcount3(net, res$rmat, res$aveMImat)
 
 plotMotifs(res2)
 ################# 

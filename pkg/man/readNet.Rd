@@ -2,10 +2,10 @@
 \alias{readNet}
 
 \title{Fetching true network from .sif file}
-\usage{readNet(infile, G)}
+\usage{readNet(infile, infilepath)}
 \arguments{
   \item{infile}{ The path for the .sif file that has true interactions of the genes.}
-  \item{G}{Number of genes.}
+  \item{infilepath}{The path of the directory, where all the data files kept.}
 }
 \value{
       \code{readNet} returns the genes' relation matrix where activator edges, repressor edges and absence of edges are represented by 1, -1 and 0 respectively. 
@@ -26,9 +26,9 @@ Frank Emmert-Streib, Gokmen Altay. Local network-based measures to assess the in
 \examples{
 
 # infile <- "./netmes/data/networkDAG.sif"
+# infilepath <- "./netmes/data/syn/"
 
-# G <- 100 # number of genes in the network
-# net <- readNet(infile, G)   
+# net <- readNet(infile, infilepath)   
 # tnet <- abs(net) + abs(t(net)) # true network (make symmetric)
 # tnet <- 1*(tnet > 0)           # in case there were bi-directional connections
 

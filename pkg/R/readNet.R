@@ -14,7 +14,11 @@
 ## from
 ## http://www.r-project.org/Licenses/LGPL-3
 
-readNet <- function(infile, G){
+readNet <- function(infile, infilepath){
+
+  file.adr <- paste(infilepath, "1/mim.exp", sep = "");
+  cc <-read.table(file.adr)
+  G <- dim(cc)[1]  # number of genes is assigned inside the local function
 
   dat <- matrix(scan(file = infile, what = "character", skip = 0), ncol = 3, byrow = TRUE)
   N <- dim(dat)[1]

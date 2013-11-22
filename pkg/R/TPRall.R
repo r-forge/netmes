@@ -14,7 +14,7 @@
 ## from
 ## http://www.r-project.org/Licenses/LGPL-3
 
-TPRall<- function(res){ #object of evalnetworks of evalnetworknames
+TPRall<- function(res){ #object of evalnetworks or evalnetworknames
 
 net <- res$net
 

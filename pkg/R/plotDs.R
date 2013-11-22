@@ -14,7 +14,7 @@
 ## from
 ## http://www.r-project.org/Licenses/LGPL-3
 
-plotDs<- function(TPReALL, Sm, fig=TRUE){ #object of evalnetworks of evalnetworknames
+plotDs<- function(TPReALL, Sm, fig=TRUE){ #object of evalnetworks or evalnetworknames
 
 L1 <- min(Sm) # Sm integer values
 L2 <- max(Sm)
